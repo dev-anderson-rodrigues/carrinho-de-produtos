@@ -132,6 +132,6 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ## Contato
 
-Para mais informações, entre em contato via email: andersoncassio200@gmail
+Para mais informações, entre em contato via email: andersoncassio200@gmail.com
 
 ---
