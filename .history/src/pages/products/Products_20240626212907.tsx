@@ -1,7 +1,7 @@
 import { useProducts } from "../../context/ProductsContext";
 import { useNavigate } from "react-router-dom";
 import { ContainerJogos, ContainerMain } from "./styles";
-import CardsJogos from "../../components/cards/Cards";
+import CardsJogos from "../../components/cards/styles";
 
 const Produtos = () => {
   const { products, countChecked } = useProducts();

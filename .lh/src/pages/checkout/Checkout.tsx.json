@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/pages/checkout/Checkout.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1719448147701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719448234571,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,49 @@\n+import React from \"react\";\r\n+import { ContainerJogos, ContainerMain } from \"./styles\";\r\n+import CardsJogos from \"../../components/cards/Cards\";\r\n+import { useProducts } from \"../../context/ProductsContext\";\r\n+\r\n+const Checkout = () => {\r\n+  const { productsChecked, countChecked, calculateTotal } = useProducts();\r\n+  const products = productsChecked.map((product) => {\r\n+    return {\r\n+      id: product.id,\r\n+      name: product.name,\r\n+      valor: product.valor,\r\n+      img: product.img,\r\n+      checked: product.checked,\r\n+      quantity: product.quantity,\r\n+    };\r\n+  });\r\n+  console.log(products);\r\n+  const namesProducts = products.find((name) => name.name);\r\n+  console.log(namesProducts);\r\n+\r\n+  const goToCheckout = () => {\r\n+    alert(\r\n+      \"Compra bem sucedida\\n\" +\r\n+        `Quantidade: ${countChecked}\\n` +\r\n+        `Total da compra: ${calculateTotal()}`\r\n+    );\r\n+  };\r\n+  return (\r\n+    <ContainerMain>\r\n+      <h1>\r\n+        <span>Checkout</span>\r\n+      </h1>\r\n+      <h2>\r\n+        <span>Produtos escolhidos:</span>\r\n+      </h2>\r\n+      <ContainerJogos>\r\n+        <CardsJogos products={productsChecked} page=\"checkout\" />\r\n+        <p className=\"total\">Total de Produtos: {countChecked}</p>\r\n+        <p className=\"total\">Total:{calculateTotal()}</p>\r\n+      </ContainerJogos>\r\n+      <div className=\"botao\">\r\n+        <button onClick={goToCheckout}>Confirmar Compra</button>\r\n+      </div>\r\n+    </ContainerMain>\r\n+  );\r\n+};\r\n+\r\n+export default Checkout;\r\n"
+                }
+            ],
+            "date": 1719448147701,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { ContainerJogos, ContainerMain } from \"./styles\";\r\nimport CardsJogos from \"../../components/cards/styles\";\r\nimport { useProducts } from \"../../context/ProductsContext\";\r\n\r\nconst Checkout = () => {\r\n  const { productsChecked, countChecked, calculateTotal } = useProducts();\r\n  const products = productsChecked.map((product) => {\r\n    return {\r\n      id: product.id,\r\n      name: product.name,\r\n      valor: product.valor,\r\n      img: product.img,\r\n      checked: product.checked,\r\n      quantity: product.quantity,\r\n    };\r\n  });\r\n  console.log(products);\r\n  const namesProducts = products.find((name) => name.name);\r\n  console.log(namesProducts);\r\n\r\n  const goToCheckout = () => {\r\n    alert(\r\n      \"Compra bem sucedida\\n\" +\r\n        `Quantidade: ${countChecked}\\n` +\r\n        `Total da compra: ${calculateTotal()}`\r\n    );\r\n  };\r\n  return (\r\n    <ContainerMain>\r\n      <h1>\r\n        <span>Checkout</span>\r\n      </h1>\r\n      <h2>\r\n        <span>Produtos escolhidos:</span>\r\n      </h2>\r\n      <ContainerJogos>\r\n        <CardsJogos products={productsChecked} page=\"checkout\" />\r\n        <p className=\"total\">Total de Produtos: {countChecked}</p>\r\n        <p className=\"total\">Total:{calculateTotal()}</p>\r\n      </ContainerJogos>\r\n      <div className=\"botao\">\r\n        <button onClick={goToCheckout}>Confirmar Compra</button>\r\n      </div>\r\n    </ContainerMain>\r\n  );\r\n};\r\n\r\nexport default Checkout;\r\n"
+        }
+    ]
+}

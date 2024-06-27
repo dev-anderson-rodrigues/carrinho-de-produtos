@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/cards/Cards.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1719448367188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1719448367188,
+            "name": "Commit-0",
+            "content": "/* eslint-disable @typescript-eslint/no-unused-vars */\r\nimport React, { useState } from \"react\";\r\nimport { Container } from \"./styles\";\r\nimport { Product, useProducts, } from \"../../context/ProductsContext\";\r\n\r\n\r\ninterface CardsJogosProps {\r\n  products: Product[];\r\n  page: string;\r\n}\r\n\r\nconst CardsJogos: React.FC<CardsJogosProps> = ({ products, page }) => {\r\n\r\n  const pageCar = page.includes(\"car\");\r\n  const pageCheckout = page.includes(\"checkout\");\r\n  const { toggleProduct, incrementQuantity, decrementQuantity} = useProducts();\r\n  const itemsToRender = products;\r\n\r\n  return (\r\n    <Container className={pageCar ? \"flex-container\" : \"grid-container\"}>\r\n      {itemsToRender.length > 0\r\n        ? itemsToRender.map((item) => (\r\n            <div key={item.id} className={pageCar ? \"img-container-page-car\" : \"img-container-page-products\"}>\r\n              <img src={item.img} alt={item.name} />\r\n              {!pageCar && !pageCheckout && (\r\n                <label>\r\n                  <span>\r\n                    <input\r\n                      type=\"checkbox\"\r\n                      checked={item.checked}\r\n                      onChange={() => toggleProduct(item.id)}\r\n                    />\r\n                    <span className=\"customcheckbox\"></span>\r\n                  </span>\r\n                  <span>\r\n                    <p>Valor: {item.valor}</p>\r\n                  </span>\r\n                </label>\r\n              )}\r\n              {pageCar && (\r\n                <div>\r\n                  <h3>{item.name}</h3>\r\n                  <p>Valor: {item.valor}</p>\r\n                  <div>\r\n                    <p>Quantitidade: {item.quantity}</p>\r\n                    <span className=\"buttons\">\r\n                      <button onClick={() => incrementQuantity(item)} className={pageCar ? \"button-page-car\" : \"\"}>+</button>\r\n                      <button onClick={()=> decrementQuantity(item)} className={pageCar ? \"button-page-car\" : \"\"}>-</button>\r\n                    </span>\r\n                  </div>\r\n                </div>\r\n              )}\r\n            </div>\r\n          ))\r\n        : \"Nenhum item\"}\r\n    </Container>\r\n  );\r\n};\r\n\r\nexport default CardsJogos;\r\n"
+        }
+    ]
+}

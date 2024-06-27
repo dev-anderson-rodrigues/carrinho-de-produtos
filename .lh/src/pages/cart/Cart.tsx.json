@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/pages/cart/Cart.tsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1719448147697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1719448272502,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,38 @@\n+import React from \"react\";\r\n+import { ContainerJogos, ContainerMain } from \"./styles\";\r\n+import { useNavigate } from \"react-router-dom\";\r\n+import { useProducts } from \"../../context/ProductsContext\";\r\n+import CardsJogos from \"../../components/cards/Cards\";\r\n+\r\n+const Carrinho = () => {\r\n+  const { productsChecked, countChecked, calculateTotal } = useProducts();\r\n+  const navigate = useNavigate();\r\n+\r\n+  const goToCheckout = () => {\r\n+    navigate(\"/checkout\");\r\n+  };\r\n+\r\n+  return (\r\n+    <div>\r\n+      <ContainerMain>\r\n+        <h1>\r\n+          <span>Carrinho</span>\r\n+          <span>\r\n+            {countChecked > 0 && (\r\n+              <div className=\"countProducts\">{countChecked}</div>\r\n+            )}\r\n+          </span>\r\n+        </h1>\r\n+        <ContainerJogos>\r\n+          <CardsJogos products={productsChecked} page=\"car\" />\r\n+        </ContainerJogos>\r\n+        <div className=\"botao\">\r\n+          <p>Total: {calculateTotal()}</p>\r\n+          <button onClick={goToCheckout}>Ir Para Checkout</button>\r\n+        </div>\r\n+      </ContainerMain>\r\n+    </div>\r\n+  );\r\n+};\r\n+\r\n+export default Carrinho;\r\n"
+                }
+            ],
+            "date": 1719448147697,
+            "name": "Commit-0",
+            "content": "import React from \"react\";\r\nimport { ContainerJogos, ContainerMain } from \"./styles\";\r\nimport { useNavigate } from \"react-router-dom\";\r\nimport { useProducts } from \"../../context/ProductsContext\";\r\nimport CardsJogos from \"../../components/cards/styles\";\r\n\r\nconst Carrinho = () => {\r\n  const { productsChecked, countChecked, calculateTotal } = useProducts();\r\n  const navigate = useNavigate();\r\n\r\n  const goToCheckout = () => {\r\n    navigate(\"/checkout\");\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      <ContainerMain>\r\n        <h1>\r\n          <span>Carrinho</span>\r\n          <span>\r\n            {countChecked > 0 && (\r\n              <div className=\"countProducts\">{countChecked}</div>\r\n            )}\r\n          </span>\r\n        </h1>\r\n        <ContainerJogos>\r\n          <CardsJogos products={productsChecked} page=\"car\" />\r\n        </ContainerJogos>\r\n        <div className=\"botao\">\r\n          <p>Total: {calculateTotal()}</p>\r\n          <button onClick={goToCheckout}>Ir Para Checkout</button>\r\n        </div>\r\n      </ContainerMain>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default Carrinho;\r\n"
+        }
+    ]
+}
